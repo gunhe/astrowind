@@ -1,72 +1,73 @@
 site:
-  name: AstroWind
-  site: 'https://astrowind.vercel.app'
-  base: '/'
-  trailingSlash: false
+  name: '你的企业名称' # 替换为你的企业名
+  site: 'https://你的域名.com' # 替换为你的网站地址
+  base: '/' 
+  trailingSlash: false 
 
-  googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
+  googleSiteVerificationId: false # 如有百度搜索验证ID，可替换
 
-# Default SEO metadata
+# 默认SEO元数据（全部中文化）
 metadata:
   title:
-    default: AstroWind
-    template: '%s — AstroWind'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+    default: '你的企业名称' # 默认标题
+    template: '%s — 你的企业名称' # 页面标题模板，%s会被当前页面标题替换
+  description: '这里是你的企业或网站的默认描述，会显示在搜索引擎结果中。' # 网站描述
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: AstroWind
+    site_name: '你的企业名称' # 在社交分享时显示的站点名称
     images:
-      - url: '~/assets/images/default.png'
+      - url: '~/assets/images/default.png' # 替换为你自己的默认分享图片
         width: 1200
         height: 628
     type: website
   twitter:
-    handle: '@arthelokyo'
-    site: '@arthelokyo'
+    handle: '@你的微博或Twitter账号' # 可选
+    site: '@你的微博或Twitter账号' # 可选
     cardType: summary_large_image
 
+# 国际化设置 - 修改为中文
 i18n:
-  language: en
-  textDirection: ltr
+  language: zh # 从 en 改为 zh
+  textDirection: ltr # 从左到右，中文适用
 
 apps:
   blog:
-    isEnabled: true
-    postsPerPage: 6
+    isEnabled: true 
+    postsPerPage: 6 
 
     post:
       isEnabled: true
-      permalink: '/%slug%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
+      permalink: '/blog/%slug%' # 博客文章链接格式，可保持
       robots:
         index: true
 
     list:
       isEnabled: true
-      pathname: 'blog' # Blog main path, you can change this to "articles" (/articles)
+      pathname: 'blog' # 博客列表页路径，可改为 'news' 或 '文章'
       robots:
         index: true
 
     category:
       isEnabled: true
-      pathname: 'category' # Category main path /category/some-category, you can change this to "group" (/group/some-category)
+      pathname: 'category' # 分类路径，可改为 '分类'
       robots:
         index: true
 
     tag:
       isEnabled: true
-      pathname: 'tag' # Tag main path /tag/some-tag, you can change this to "topics" (/topics/some-category)
+      pathname: 'tag' # 标签路径，可改为 '标签'
       robots:
         index: false
 
-    isRelatedPostsEnabled: true
-    relatedPostsCount: 4
+    isRelatedPostsEnabled: true 
+    relatedPostsCount: 4 
 
 analytics:
   vendors:
     googleAnalytics:
-      id: null # or "G-XXXXXXXXXX"
+      id: null # 可替换为百度统计等其他工具的ID
 
 ui:
-  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+  theme: 'system' # 可选: "system" | "light" | "dark" | "light:only" | "dark:only"
