@@ -1,9 +1,11 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
+import fs from 'fs';
 
 import { defineConfig } from 'astro/config';
 
 import { unified } from '@astrojs/markdown-remark';
+import yaml from 'js-yaml';
 
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
@@ -14,10 +16,15 @@ import compress from 'astro-compress';
 import type { AstroIntegration } from 'astro';
 
 import astrowind from './vendor/integration';
+import llmsTxtIntegration from './vendor/integration/llms-txt';
 
 import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin } from './src/utils/frontmatter';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const appConfig = yaml.load(fs.readFileSync(path.resolve(__dirname, './src/config.yaml'), 'utf8')) as {
+  site?: { name?: string };
+  metadata?: { description?: string };
+};
 
 const hasExternalScripts = false;
 const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroIntegration)[] = []) =>
@@ -67,6 +74,11 @@ export default defineConfig({
 
     astrowind({
       config: './src/config.yaml',
+    }),
+
+    llmsTxtIntegration({
+      siteTitle: appConfig.site?.name,
+      description: appConfig.metadata?.description,
     }),
   ],
 

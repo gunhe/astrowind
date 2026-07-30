@@ -4,323 +4,326 @@ import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import peStretchFilmMachine from '~/assets/images/pe-stretch-film-machine.jpg';
+import lldpeFourShaftStretchFilmMachine from '~/assets/images/lldpe-four-shaft-stretch-film-machine.jpg';
+import lldpeStretchClingFilmMachine from '~/assets/images/lldpe-stretch-cling-film-machine.jpg';
 
 const metadata = {
-  title: '企业官网定制服务 - 品牌官网设计与开发',
+  title: '惠州市富利源实业有限公司',
+  description: '惠州市富利源实业有限公司专注塑料薄膜制造机设备，主要产品包括 PVC 薄膜机、PE 保鲜膜机、拉伸膜机等。',
   ignoreTitleTemplate: true,
 };
+
+const productImages = [
+  {
+    title: 'PE缠绕膜拉伸膜',
+    src: peStretchFilmMachine,
+  },
+  {
+    title: 'LLDPE四轴绕组拉伸包裹保膜机',
+    src: lldpeFourShaftStretchFilmMachine,
+  },
+  {
+    title: 'LLDPE拉伸/保鲜膜机',
+    src: lldpeStretchClingFilmMachine,
+  },
+];
+
+const productCategories = [
+  {
+    title: 'PE拉伸膜机/缠绕膜机',
+    description: '对应 PE 缠绕膜与拉伸膜整线需求。',
+  },
+  {
+    title: 'PVC保鲜膜机',
+    description: '适配 PVC 保鲜膜成品稳定连续生产。',
+  },
+  {
+    title: 'CPE/CPP 流延膜机',
+    description: '满足药用包装、医用敷料、日用品等行业要求。',
+  },
+  {
+    title: 'TPU/EVA 流延膜机',
+    description: '适配弹性薄膜与鞋材、热熔胶膜等场景。',
+  },
+  {
+    title: '淋膜机',
+    description: '用于更多工业薄膜与复合材料应用。',
+  },
+];
+
+const contacts = [
+  {
+    title: '联系人',
+    description: '易经理 — +86 18819694106<br/>辉经理 — +86 13927374240<br/>刘经理 — +86 13316330286',
+    icon: 'tabler:user',
+  },
+  {
+    title: 'WhatsApp',
+    description: 'sunny yi — +86 18819694106<br/>Lewin Yi — +86 13927374240<br/>Ella Liu — +86 13316330286',
+    icon: 'tabler:brand-whatsapp',
+  },
+  {
+    title: '邮箱',
+    description: 'fuliyuan@epemachine.com',
+    icon: 'tabler:mail',
+  },
+  {
+    title: '公司地址',
+    description: '中国广东省惠州市平潭镇怡发3路',
+    icon: 'tabler:map-pin',
+  },
+  {
+    title: '售后服务',
+    description: '+86 13680898941',
+    icon: 'tabler:headset',
+  },
+  {
+    title: '抖音',
+    description: '抖音官方账号',
+    icon: 'tabler:brand-tiktok',
+  },
+];
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-
   <Hero
+    tagline="富利源机械"
     actions={[
-      {
-        variant: 'primary',
-        text: '预约咨询',
-        href: '/contact',
-        icon: 'tabler:calendar-check',
-      },
-      { text: '查看服务能力', href: '#features' },
+      { variant: 'primary', text: '核心产品', href: '#products', icon: 'tabler:tools' },
+      { text: '关于我们', href: '#about' },
+      { text: '联系我们', href: '#contact' },
     ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: '企业官网定制服务展示' }}
   >
     <Fragment slot="title">
-      为企业打造<span class="text-accent dark:text-white">高转化官网</span>
-      <span class="hidden xl:inline">，从品牌表达走到业务增长</span>
+      流延膜机设备<span class="text-accent dark:text-white">源头厂家</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        我们为 B2B 企业、SaaS、制造业和专业服务公司提供官网策划、视觉设计、前端开发、SEO 基础建设与上线维护。</span
-      >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">企业官网定制。</span>
-      用清晰的信息架构、专业的视觉系统和高性能技术底座，让访问者更快理解你、信任你并联系你。
+      惠州市富利源实业有限公司集产品设计、科研开发、工厂制造、销售与贸易及售后服务于一体，主要产品包括 PVC 薄膜机、PE
+      保鲜膜机、拉伸膜机等。
+    </Fragment>
+
+    <Fragment slot="image">
+      <div class="grid gap-4 md:grid-cols-3">
+        {
+          productImages.map((product) => (
+            <figure class="overflow-hidden rounded-md border border-gray-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-900">
+              <img
+                src={product.src.src}
+                alt={product.title}
+                loading="eager"
+                fetchpriority="high"
+                class="h-56 w-full object-cover"
+              />
+              <figcaption class="px-4 py-3 text-sm font-medium text-gray-900 dark:text-white">
+                {product.title}
+              </figcaption>
+            </figure>
+          ))
+        }
+      </div>
     </Fragment>
   </Hero>
 
-  <!-- Note Widget ******************* -->
-
-  <Note title="交付原则：" description="业务清晰、设计克制、性能可靠、长期可维护" />
-
-  <!-- Features Widget *************** -->
+  <Note title="服务承诺：" description="客服热线全天 24 小时开放，首个问题响应时间在 6 小时内。" />
 
   <Features
-    id="features"
-    tagline="服务能力"
-    title="我们帮企业把官网做成可持续获客的数字门面"
-    subtitle="不只做页面美化，而是从业务定位、内容结构、视觉表达、技术实现到上线运营，完成一套可落地的官网系统。"
+    id="advantages"
+    tagline="我们的优势"
+    title="20 多年薄膜机械生产与处理经验"
+    subtitle="公司具备国内外贸易资质，产品销往 60 多个国家，并持续投入研发与服务体系。"
+    columns={2}
     items={[
       {
-        title: '官网策略与信息架构',
-        description: '梳理目标客户、核心卖点、服务路径和转化动作，让官网先讲清楚“你是谁、解决什么、为什么可信”。',
-        icon: 'tabler:sitemap',
+        title: '职业化',
+        description:
+          '拥有超过 20 年的发泡沫流延膜机械包装机器生产和处理经验；现代化企业，拥有 2 万平方米作坊，集生产、物资收集和贸易服务于一体。',
+        icon: 'tabler:building-factory-2',
       },
       {
-        title: '品牌视觉与页面设计',
-        description: '基于行业属性和品牌调性设计首页、服务页、案例页、关于页等核心页面，兼顾专业感和可读性。',
-        icon: 'tabler:palette',
+        title: '创新与研究',
+        description:
+          '研发团队由 8 名电气和机械工程师组成，技术团队共 23 人；拥有 36 项独立专利，定期举办技术研讨会和讨论。',
+        icon: 'tabler:bulb',
       },
       {
-        title: '高性能前端开发',
-        description: '使用 Astro、Tailwind CSS 和静态化架构构建快速、稳定、易维护的网站，适合长期运营和迭代。',
-        icon: 'tabler:code',
+        title: '优质产品',
+        description:
+          '产品种类繁多，机器型号规格齐全；可定制以满足各种生产需求，并集成制造生产系统，节省劳动力并提升效率。',
+        icon: 'tabler:settings-cog',
       },
       {
-        title: 'SEO 基础建设',
-        description: '交付标题结构、元信息、站点地图、语义化内容和基础性能优化，为搜索收录和自然流量打好基础。',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: '转化路径设计',
-        description: '围绕咨询、留资、下载资料、预约演示等目标设计按钮、表单和内容节奏，减少用户决策阻力。',
-        icon: 'tabler:route',
-      },
-      {
-        title: '上线与维护支持',
-        description: '支持部署、域名配置、数据统计、内容更新和后续页面扩展，让官网不是一次性交付后就停摆。',
-        icon: 'tabler:lifebuoy',
+        title: '质量与优质服务',
+        description: '持有 CE 和 UL 认证，与知名零部件供应商长期合作；整机提供一年保修，主要部件提供 18 个月保修。',
+        icon: 'tabler:certificate',
       },
     ]}
   />
 
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    tagline="我们的优势"
-    title="懂业务、懂设计，也懂前端工程"
-    items={[
-      {
-        title: '先定义业务目标',
-        description: '在设计前先明确目标客户、核心转化动作和内容优先级，避免官网变成只展示公司简介的静态画册。',
-      },
-      {
-        title: '设计服务于信任建立',
-        description: '通过清晰版式、案例证明、专业内容和统一视觉，让访客更快判断你的实力与匹配度。',
-      },
-      {
-        title: '代码交付可维护',
-        description: '使用模块化组件和规范化样式组织，方便后续新增页面、调整内容和接入数据统计。',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: '企业官网项目协作场景',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">从一次改版，变成长期资产</h3>
-      我们关注的不只是首页好不好看，更关注访客能否理解、信任并采取下一步行动。
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isAfterContent
-    items={[
-      {
-        title: '定制首页',
-        description: `围绕品牌定位、核心服务、客户案例和转化入口设计首页，让首屏就能传达你的专业价值。`,
-      },
-      {
-        title: '服务与解决方案页面',
-        description: '把复杂的产品、服务或行业方案拆解成易读的页面结构，帮助客户快速找到与自己相关的信息。',
-      },
-      {
-        title: '案例与信任背书',
-        description: '通过客户案例、项目成果、合作品牌、资质认证和团队信息，建立更完整的信任链路。',
-      },
-      {
-        title: '响应式与访问体验',
-        description: '适配桌面端、平板和手机端，优化图片、排版、导航和表单体验，让不同设备访问都顺畅。',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
-      alt: '企业官网页面规划',
-    }}
-  >
-    <Fragment slot="content">交付的不只是页面，而是一套可以持续迭代的官网内容体系。</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    isAfterContent
-    items={[
-      {
-        title: '更清晰的品牌表达',
-        description: '让潜在客户在短时间内理解你的业务边界、核心优势和服务流程，减少沟通成本。',
-      },
-      {
-        title: '更稳定的自然流量基础',
-        description: '通过合理的页面结构、语义化内容和性能优化，为后续 SEO 和内容运营提供基础。',
-      },
-      {
-        title: '更高的线索转化效率',
-        description: '在关键位置设置咨询入口、表单和行动引导，把访问流量转化成更明确的业务线索。',
-      },
-      {
-        title: '更低的后续维护成本',
-        description: `模块化页面结构便于后续扩展服务、发布文章、增加案例或配合市场活动快速新增落地页。`,
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: '企业官网增长价值',
-    }}
-  >
-    <Fragment slot="content">让官网既能代表企业形象，也能承担获客和转化任务。</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Steps Widget ****************** -->
+  <section id="products" class="px-4 py-16 sm:px-6 md:py-20">
+    <div class="mx-auto max-w-7xl">
+      <div class="mx-auto mb-10 max-w-3xl text-center">
+        <p class="mb-2 font-bold uppercase tracking-wide text-secondary dark:text-blue-200">核心产品</p>
+        <h2 class="font-heading text-4xl font-bold tracking-tighter md:text-5xl dark:text-white">
+          核心塑料薄膜制造机产品
+        </h2>
+        <p class="mt-4 text-xl text-muted dark:text-slate-400">
+          FLY 工业专注于高性能塑料薄膜生产设备，核心产品组合涵盖 PVC 保鲜膜机、LLDPE 保鲜膜机和拉伸膜机以及 LLDPE
+          四轴拉伸膜机。
+        </p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        {
+          productImages.map((product) => (
+            <article class="overflow-hidden rounded-md border border-gray-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-900">
+              <img src={product.src.src} alt={product.title} loading="lazy" class="h-64 w-full object-cover" />
+              <div class="p-5">
+                <h3 class="text-xl font-bold dark:text-white">{product.title}</h3>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 
   <Steps
-    title="从需求梳理到正式上线，我们按清晰流程推进每个官网项目。"
+    id="solutions"
+    title="从单台设备到交钥匙工程"
+    subtitle="20 年专注薄膜制造技术，覆盖配方调试、机械安装、售后全流程，助力客户快速投产。"
     items={[
       {
-        title: '第 1 步：<span class="font-medium">业务访谈与诊断</span>',
-        description: '了解你的目标客户、业务模式、现有官网问题和转化目标，明确项目范围、页面清单和优先级。',
-        icon: 'tabler:messages',
+        title: '01 <span class="font-medium">PVC 保鲜膜流延膜机器生产线</span>',
+        description: '包含挤出主机、专用模头、自动收卷，适配 PVC 保鲜膜成品稳定连续生产，满足食品包装与商超领域要求。',
+        icon: 'tabler:number-1',
       },
       {
-        title: '第 2 步：<span class="font-medium">内容策划与视觉设计</span>',
-        description: '梳理页面信息架构、撰写核心文案方向，并完成符合品牌调性的视觉设计稿。',
-        icon: 'tabler:layout-dashboard',
+        title: '02 <span class="font-medium">PE 缠绕膜拉伸膜生产线</span>',
+        description: '提供 PE 缠绕膜、拉伸膜整线方案，包含挤出主机、模头、自动收卷系统，适配工业包装与物流领域。',
+        icon: 'tabler:number-2',
       },
       {
-        title: '第 3 步：<span class="font-medium">开发联调与上线</span>',
-        description: '完成响应式开发、性能优化、SEO 基础配置、表单或统计接入，并协助部署到正式环境。',
-        icon: 'tabler:device-desktop-code',
+        title: '03 <span class="font-medium">TPU/EVA 流延膜生产线</span>',
+        description: '提供流延工艺整线方案，适配弹性薄膜与鞋材、热熔胶膜等下游多种应用场景。',
+        icon: 'tabler:number-3',
       },
       {
-        title: '持续优化',
-        icon: 'tabler:check',
+        title: '04 <span class="font-medium">CPE/CPP 流延膜生产线</span>',
+        description: '整线交付，可按成品规格定制，满足药用包装、医用敷料、日用品等行业要求。',
+        icon: 'tabler:number-4',
+      },
+      {
+        title: '05 <span class="font-medium">全流程整厂规划服务</span>',
+        description: '从配方调试、机械安装到人员培训、售后支持，一站式落地帮客户快速投产。',
+        icon: 'tabler:number-5',
       },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: '企业官网项目交付流程',
-    }}
   />
 
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="企业官网常见交付模块"
-    subtitle="根据行业、客单价和销售周期组合页面模块，让网站从展示型升级为业务型。"
-    tagline="交付内容"
+  <Content
+    id="about"
+    isReversed
+    tagline="关于我们"
+    title="惠州市富利源实业有限公司"
     items={[
-      {
-        title: '导航与首屏',
-        description: '清晰呈现品牌定位、核心价值和主要行动入口，让访客进入页面后迅速判断是否继续了解。',
-        icon: 'flat-color-icons:template',
-      },
-      {
-        title: '服务介绍',
-        description: '把服务内容、适用客户、交付成果和合作方式讲清楚，减少客户反复询问基础问题。',
-        icon: 'flat-color-icons:gallery',
-      },
-      {
-        title: '解决方案',
-        description: '面向不同行业或场景组织内容，让潜在客户看到与自身业务直接相关的方案。',
-        icon: 'flat-color-icons:approval',
-      },
-      {
-        title: '案例展示',
-        description: '用项目背景、解决思路和结果数据呈现真实能力，比单纯罗列服务更容易建立信任。',
-        icon: 'flat-color-icons:document',
-      },
-      {
-        title: '行动转化',
-        description: '设计咨询按钮、预约入口、资料下载或询价表单，让客户知道下一步该做什么。',
-        icon: 'flat-color-icons:advertising',
-      },
-      {
-        title: '套餐与报价',
-        description: '按项目复杂度展示基础版、标准版或定制版范围，帮助客户形成合理预算预期。',
-        icon: 'flat-color-icons:currency-exchange',
-      },
-      {
-        title: '客户评价',
-        description: '通过客户反馈、合作品牌和成果证明，加强企业背书和采购信心。',
-        icon: 'flat-color-icons:voice-presentation',
-      },
-      {
-        title: '联系表单',
-        description: '根据销售流程收集姓名、公司、需求和预算等关键字段，提高后续跟进效率。',
-        icon: 'flat-color-icons:business-contact',
-      },
-      {
-        title: '页脚与合规',
-        description: '统一放置导航、联系方式、备案信息、隐私政策和社交渠道，补齐官网基础信息。',
-        icon: 'flat-color-icons:database',
-      },
+      { title: '成立时间', description: '公司前身为深圳富利源机械有限公司，成立于 2003 年。' },
+      { title: '生产基地', description: '占地面积达 24,000 平方米，位于广东省惠州市惠阳区怡发工业园区。' },
+      { title: '交通位置', description: '距离惠州机场 9.2 公里，距离惠州北高速站 29 公里，距离深圳港 100 公里。' },
+      { title: '主营产品', description: '主要产品为 PVC 薄膜机、PE 保鲜膜机、拉伸膜机等。' },
     ]}
   >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    <Fragment slot="content">
+      <p>
+        经过 20
+        多年的探索与开发，公司已发展成为现代化塑料薄膜制造机设备企业，集产品设计、科研开发、工厂制造、销售与贸易及售后服务于一体。
+      </p>
     </Fragment>
-  </Features2>
+  </Content>
 
-  <!-- FAQs Widget ******************* -->
-
-  <FAQs
-    title="常见问题"
-    subtitle="在正式合作前，你可能会关心项目周期、交付范围、内容准备、SEO 和后续维护。"
-    tagline="FAQ"
-    classes={{ container: 'max-w-6xl' }}
+  <Features2
+    id="market"
+    tagline="供应商与客户"
+    title="市场覆盖多个国家和地区"
+    subtitle="公司市场覆盖亚洲、中东、非洲、欧亚大陆以及美洲多个国家。"
+    columns={3}
     items={[
       {
-        title: '官网定制项目通常需要多长时间？',
-        description:
-          '标准企业官网通常需要 3-6 周；如果包含复杂动效、多语言、内容迁移或大量案例页面，周期会根据范围延长。',
+        title: '亚洲',
+        description: '中国、印度、印度尼西亚、越南、泰国、马来西亚、菲律宾、巴基斯坦。',
+        icon: 'tabler:world',
       },
       {
-        title: '开始前我们需要准备哪些资料？',
-        description:
-          '建议准备公司介绍、服务资料、品牌视觉规范、案例素材、联系方式和现有官网数据。资料不完整也可以先启动，我们会在策划阶段协助梳理。',
+        title: '中东与非洲',
+        description: '阿拉伯联合酋长国、沙特阿拉伯、伊朗、埃及、摩洛哥、突尼斯、阿尔及利亚、南非、尼日利亚、肯尼亚。',
+        icon: 'tabler:world',
       },
       {
-        title: '你们只做设计，还是包含开发上线？',
-        description: '我们可以提供从策划、设计、开发到部署上线的一站式交付，也可以根据你的团队情况只负责其中某个阶段。',
-      },
-      {
-        title: '官网上线后可以由我们自己维护吗？',
-        description:
-          '可以。我们会按项目约定交付源码、部署说明和基础使用文档，也可以继续提供内容更新、页面扩展和技术维护服务。',
-      },
-      {
-        title: '是否支持 SEO 和数据统计？',
-        description:
-          '支持。基础交付会包含标题、描述、语义结构、站点地图和性能优化，也可以接入统计工具，帮助你观察访问来源和转化表现。',
-      },
-      {
-        title: '如何评估官网定制预算？',
-        description:
-          '预算主要取决于页面数量、设计复杂度、交互需求、内容整理深度和是否需要多语言或后台能力。我们会先确认范围，再给出清晰报价。',
+        title: '欧亚与美洲',
+        description: '土耳其、俄罗斯、巴西、墨西哥、美国、阿根廷、哥伦比亚、智利。',
+        icon: 'tabler:world',
       },
     ]}
   />
+
+  <Features2
+    id="product-categories"
+    tagline="产品分类"
+    title="覆盖多类薄膜与包装设备"
+    subtitle="按照旧官网信息整理的产品分类，保留企业实际业务范围。"
+    columns={3}
+    items={productCategories.map((item) => ({
+      ...item,
+      icon: 'tabler:category',
+    }))}
+  />
+
+  <Features
+    id="patents"
+    tagline="创新专利"
+    title="核心专利技术与国际认证"
+    subtitle="公司拥有多项核心专利技术与国际认证，持续推动产品创新与品质提升。"
+    columns={3}
+    items={[
+      {
+        title: '36 项独立专利',
+        description: '持续开展研发投入，推动产品技术迭代。',
+        icon: 'tabler:award',
+      },
+      {
+        title: 'CE 与 UL 认证',
+        description: '公司产品持有 CE 和 UL 认证。',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: '全球 500 强供应商',
+        description: '被财富全球 500 强企业指定为包装材料供应商。',
+        icon: 'tabler:building-skyscraper',
+      },
+    ]}
+  />
+
+  <section id="contact" class="px-4 py-16 sm:px-6 md:py-20">
+    <div class="mx-auto max-w-7xl">
+      <div class="mx-auto mb-10 max-w-3xl text-center">
+        <p class="mb-2 font-bold uppercase tracking-wide text-secondary dark:text-blue-200">联系我们</p>
+        <h2 class="font-heading text-4xl font-bold tracking-tighter md:text-5xl dark:text-white">
+          欢迎随时联系我们获取产品报价、技术咨询与售后服务支持
+        </h2>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          contacts.map((item) => (
+            <article class="rounded-md border border-gray-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900">
+              <h3 class="text-xl font-bold dark:text-white">{item.title}</h3>
+              <p class="mt-3 text-muted" set:html={item.description} />
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 </Layout>

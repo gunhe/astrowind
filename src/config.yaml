@@ -1,41 +1,39 @@
 site:
-  name: '你的企业名称' # 替换为你的企业名
-  site: 'https://你的域名.com' # 替换为你的网站地址
-  base: '/' 
-  trailingSlash: false 
+  name: '惠州市富利源实业有限公司'
+  site: 'http://8.163.120.238:81'
+  base: '/'
+  trailingSlash: false
 
-  googleSiteVerificationId: false # 如有百度搜索验证ID，可替换
+  googleSiteVerificationId: false
 
-# 默认SEO元数据（全部中文化）
 metadata:
   title:
-    default: '你的企业名称' # 默认标题
-    template: '%s — 你的企业名称' # 页面标题模板，%s会被当前页面标题替换
-  description: '这里是你的企业或网站的默认描述，会显示在搜索引擎结果中。' # 网站描述
+    default: '惠州市富利源实业有限公司'
+    template: '%s — 惠州市富利源实业有限公司'
+  description: '惠州市富利源实业有限公司专注塑料薄膜制造机设备，主要产品包括 PVC 薄膜机、PE 保鲜膜机、拉伸膜机等。'
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: '你的企业名称' # 在社交分享时显示的站点名称
+    site_name: '惠州市富利源实业有限公司'
     images:
       - url: '~/assets/images/default.png' # 替换为你自己的默认分享图片
         width: 1200
         height: 628
     type: website
   twitter:
-    handle: '@你的微博或Twitter账号' # 可选
-    site: '@你的微博或Twitter账号' # 可选
+    handle: null
+    site: null
     cardType: summary_large_image
 
-# 国际化设置 - 修改为中文
 i18n:
-  language: zh # 从 en 改为 zh
-  textDirection: ltr # 从左到右，中文适用
+  language: zh
+  textDirection: ltr
 
 apps:
   blog:
-    isEnabled: true 
-    postsPerPage: 6 
+    isEnabled: false
+    postsPerPage: 6
 
     post:
       isEnabled: true
@@ -61,8 +59,8 @@ apps:
       robots:
         index: false
 
-    isRelatedPostsEnabled: true 
-    relatedPostsCount: 4 
+    isRelatedPostsEnabled: true
+    relatedPostsCount: 4
 
 analytics:
   vendors:
