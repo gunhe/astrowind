@@ -300,3 +300,41 @@ Initially created by **Arthelokyo** and maintained by a community of [contributo
 ## License
 
 **AstroWind** is licensed under the MIT license — see the [LICENSE](./LICENSE.md) file for details.
+
+
+## 开发启动
+
+前置要求
+
+Node.js >= 22.12.0
+
+```bash
+npm install
+
+npm run dev
+```
+
+## 打包
+```bash
+npm run build
+```
+
+## docker启动
+```bash
+# 构建镜像
+docker build -t ttt_astrowind .
+
+# 启动容器
+docker run -d \
+  --name ccc_astrowind \
+  --restart unless-stopped \
+  -p 18080:8080 \
+  ttt_astrowind
+
+# 查看日志
+docker logs -f ccc_astrowind
+
+# 停止并删除容器
+docker stop ccc_astrowind
+docker rm ttt_astrowind
+```
