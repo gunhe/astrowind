@@ -3,6 +3,8 @@ WORKDIR /app
 
 FROM base AS deps
 COPY package*.json ./
+# 设置 npm 为清华镜像源，加速依赖安装
+RUN npm config set registry https://registry.npmmirror.com
 RUN npm install
 
 FROM base AS build
